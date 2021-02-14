@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        td{
+            font-size: 28px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container p-3">
+        <div class="row">
+            <div class="col-4">
+                <div class="row p-2" id="buttons">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary" id="invoicebtn">INVOICE</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary" id="accountbtn">ACCOUNT</button>
+                    </div>
+                </div> 
+            <form id="cusform">
+                <div class="row p-3" style="display:none" id="customer">
+                    <div  class="text-center font-weight-bolder">CUSTOMER INFO</div>
+                    <div class="col-6 form-group">
+                            <label for="customerid">CUSTOMER ID</label>
+                            <input type="text" class="form-control" id="customerid" placeholder="customerid">      
+                    </div>
+                    <div class="col-6 form-group">
+                        <label for="customername">CUSTOMER NAME</label>
+                        <input type="text" class="form-control" id="customername" placeholder="name">      
+                    </div>
+                </div>
+            </form>
+
+            <form id="invform">
+                <div class="row p-3" style="display:none" id="invoice">
+                    <div  class="text-center font-weight-bolder">INVOICE INFO</div>
+                    <div class="col-6 form-group">
+                            <label for="invoiceid">Invoice No.</label>
+                            <input type="text" class="form-control" id="invoiceid" placeholder="invoice number">      
+                    </div>
+                    <div class="col-6 form-group">
+                        <label for="invoiceamount">Amount</label>
+                        <input type="text" class="form-control" id="invoiceamount" placeholder="amount">      
+                    </div>
+                    <div class=" col-6 form-group">
+                        <label for="discount">Discount Rate</label>
+                        <input type="text" class="form-control" id="discount" placeholder="Discount percentage">      
+                    </div>
+                    <div class="col-6 form-group">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" id="getinvoice">Get INVOICE</button>
+                          
+                    </div>
+                    <div class="col-6 form-group">
+                        <button type="reset" class="btn btn-primary btn-lg btn-block"
+                         id="reset1">RESET</button> 
+                    </div>
+                </div>
+            </form>
+
+            <form id="accform">
+               <div class="row p-3" style="display:none" id="account">
+                <div  class="text-center font-weight-bolder">ACCOUNT INFO</div>
+                    <div class="col-6 form-group">
+                            <label for="accountid">ACCOUNT NO.</label>
+                            <input type="text" class="form-control" id="accountid" placeholder="account number">      
+                    </div>
+                    <div class="col-6 form-group">
+                        <label for="balance">ACCOUNT BALANCE</label>
+                        <input type="text" class="form-control" id="balance" placeholder="balance">      
+                    </div>
+                    <div class="col-6 form-group">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" id="add">ADD ACCOUNT</button>   
+                    </div>
+                    <div id="show" style="display:none">
+                    <div class="col-6 form-group">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" id="withdraw">WITHDRAW</button>   
+                    </div>
+                    <div class="col-6 form-group">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" id="deposit">DEPOSIT</button>   
+                    </div>
+                    <div class="col-6 form-group">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" id="getaccount">ACCOUNT INFO</button>   
+                    </div>
+                </div>
+                </div>
+            </form>
+            </div>
+            
+            <div class="col-4 p-2 " id="info1" style="display:none">
+
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center font-weight-bolder">INVOICE</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                   
+                      <tr>
+                        <th scope="row">CUSTOMER ID</th>
+                        <td id="cusid"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">CUSTOMER NAME</th>
+                        <td id="cusname"></td>
+                      </tr>
+                    
+                    
+                        <tr>
+                          <th scope="row">INVOICE ID</th>
+                          <td id="invid"></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">AMOUNT</th>
+                          <td id="bframt"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">DISCOUNT RATE</th>
+                            <td id="dis_rate"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">NET AMOUNT</th>
+                            <td id="afterdis"></td>
+                          </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+            <div class="col-4 p-3 " id="info2" style="display:none">   
+                  
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="text-center font-weight-bolder">ACCOUNT</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            
+                                <tr>
+                                  <th scope="row">CUSTOMER ID</th>
+                                  <td id="cus_ac_id"></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">CUSTOMER NAME</th>
+                                  <td id="cus_ac_name"></td>
+                                </tr>
+                              
+                    <tr>
+                      <th scope="row">ACCOUNT ID: </th>
+                      <td id="accid"></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">BALANCE</th>
+                      <td id="bal"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                 
+            </div>
+            <div class="col-4 p-3 " id="forms" >
+                <div id="drawform"  style="display:none">
+                    <div class="col-6 form-group">
+                        <label for="creditamt">Enter amount:</label>
+                        <input type="text" class="form-control" id="creditamt" placeholder="amount">  
+                        <button type="button" class="btn btn-primary btn-lg btn-block" id="draw">CREDIT</button> 
+                        <div id="aftercredit"></div>      
+                    </div>
+                </div>
+                <div id="addform"  style="display:none">
+                    <div class="col-6 form-group">
+                        <label for="debitamt">Enter amount:</label>
+                        <input type="text" class="form-control" id="debitamt" placeholder="amount">  
+                        <button type="button" class="btn btn-primary btn-lg btn-block" id="add_amt">DEBIT</button>    
+                        <div id="afterdebit"></div>   
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src='public/bundle.js'></script>
+</body>
+</html>
